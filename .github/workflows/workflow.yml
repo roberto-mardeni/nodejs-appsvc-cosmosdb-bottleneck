@@ -10,9 +10,9 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_WEBAPP_NAME: "mywebapp202502121032"    # set this to your application's name
-  LOAD_TEST_RESOURCE: "myloadtest202502121032"
-  LOAD_TEST_RESOURCE_GROUP: "mywebapp202502121032-rg"
+  AZURE_WEBAPP_NAME: "mywebapp202502121042"    # set this to your application's name
+  LOAD_TEST_RESOURCE: "myloadtest202502121042"
+  LOAD_TEST_RESOURCE_GROUP: "mywebapp202502121042-rg"
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '14.15.1'                # set this to the node version to use
   LOCATION: "West US2"
