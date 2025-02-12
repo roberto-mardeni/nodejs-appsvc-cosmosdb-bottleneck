@@ -6,8 +6,8 @@ testType: JMX
 description: 'Load test the sample app'
 engineInstances: 6
 failureCriteria:
-  - avg(response_time_ms) > 15000
-  - percentage(error) > 50
+  - avg(response_time_ms) > 1500
+  - percentage(error) > 10
 autoStop:
   errorPercentage: 80
   timeWindow: 60
