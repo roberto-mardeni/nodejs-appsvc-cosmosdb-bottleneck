@@ -93,7 +93,7 @@
         },
         {
             "type": "Microsoft.DocumentDB/databaseAccounts/mongodbDatabases",
-            "apiVersion": "2020-06-01-preview",
+            "apiVersion": "2024-12-01-preview",
             "name": "[concat(parameters('databaseAccountId'), '/sampledatabase')]",
             "dependsOn": [
                 "[resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('databaseAccountId'))]"
@@ -107,7 +107,7 @@
         },
         {
             "type": "Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/collections",
-            "apiVersion": "2020-06-01-preview",
+            "apiVersion": "2024-12-01-preview",
             "name": "[concat(parameters('databaseAccountId'), '/sampledatabase/samplecollection')]",
             "dependsOn": [
                 "[resourceId('Microsoft.DocumentDB/databaseAccounts/mongodbDatabases', parameters('databaseAccountId'), 'sampledatabase')]",
@@ -124,7 +124,7 @@
         },
         {
             "type": "Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/collections/throughputSettings",
-            "apiVersion": "2020-06-01-preview",
+            "apiVersion": "2024-12-01-preview",
             "name": "[concat(parameters('databaseAccountId'), '/sampledatabase/samplecollection/default')]",
             "dependsOn": [
                 "[resourceId('Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/collections', parameters('databaseAccountId'), 'sampledatabase', 'samplecollection')]",
@@ -132,11 +132,7 @@
                 "[resourceId('Microsoft.DocumentDB/databaseAccounts', parameters('databaseAccountId'))]"
             ],
             "properties": {
-                "resource": {
-                    "autoscaleSettings": {
-                        "maxThroughput": 10000
-                    }
-                }
+                "resource": {}
             }
         },
         {
@@ -153,14 +149,27 @@
             }
         },
         {
-            "apiVersion": "2015-04-08",
+            "apiVersion": "2024-12-01-preview",
             "kind": "MongoDB",
             "type": "Microsoft.DocumentDb/databaseAccounts",
             "name": "[parameters('databaseAccountId')]",
             "location": "[parameters('databaseAccountLocation')]",
             "properties": {
                 "databaseAccountOfferType": "Standard",
+                "capabilities": [
+                    {
+                        "name": "EnableMongo"
+                    }
+                ],
+                "capacityMode": "Serverless",
+                "capacity": {
+                    "totalThroughputLimit": 4000
+                },
                 "name": "[parameters('databaseAccountId')]"
+            },
+            "tags": {
+                "defaultExperience": "Azure Cosmos DB for MongoDB API",
+                "hidden-cosmos-mmspecial": ""
             }
         }
     ],
