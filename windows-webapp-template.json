@@ -71,15 +71,17 @@
             "name": "[parameters('hostingPlanName')]",
             "location": "[resourceGroup().location]",
             "sku": {
-                "name": "P2v3",
+                "name": "P1v3",
                 "tier": "PremiumV3",
-                "size": "P2v3",
+                "size": "P1v3",
                 "family": "Pv3",
                 "capacity": 1
             },
             "kind": "app",
             "properties": {
                 "perSiteScaling": false,
+                "elasticScaleEnabled": true,
+                "numberOfSites": 1,
                 "maximumElasticWorkerCount": 1,
                 "isSpot": false,
                 "reserved": false,
