@@ -4,10 +4,17 @@ displayName: Sample Test
 testPlan: SampleApp.jmx
 testType: JMX
 description: 'Load test the sample app'
-engineInstances: 3
+engineInstances: 6
 failureCriteria:
   - avg(response_time_ms) > 1000
   - percentage(error) > 50
 autoStop:
   errorPercentage: 80
   timeWindow: 60
+regionalLoadTestConfig:
+- region: eastus2
+  engineInstances: 2
+- region: westus2
+  engineInstances: 2
+- region: centralus
+  engineInstances: 2
