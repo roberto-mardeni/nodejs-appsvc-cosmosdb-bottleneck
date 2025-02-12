@@ -15,11 +15,11 @@
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="jp@gc - Ultimate Thread Group" enabled="true">
         <collectionProp name="ultimatethreadgroupdata">
           <collectionProp name="-1108691518">
-            <stringProp name="1567">10</stringProp>
+            <stringProp name="1567">20</stringProp>
             <stringProp name="48">0</stringProp>
             <stringProp name="48873">180</stringProp>
             <stringProp name="49710">240</stringProp>
-            <stringProp name="10">5</stringProp>
+            <stringProp name="10">10</stringProp>
           </collectionProp>
         </collectionProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
@@ -53,12 +53,12 @@
           <collectionProp name="load_profile">
             <collectionProp name="-192758233">
               <stringProp name="1567">10</stringProp>
-              <stringProp name="1691">50</stringProp>
+              <stringProp name="1691">200</stringProp>
               <stringProp name="48873">180</stringProp>
             </collectionProp>
             <collectionProp name="1582355627">
               <stringProp name="1691">50</stringProp>
-              <stringProp name="1691">50</stringProp>
+              <stringProp name="1691">400</stringProp>
               <stringProp name="49710">240</stringProp>
             </collectionProp>
           </collectionProp>
@@ -68,11 +68,11 @@
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="jp@gc - Ultimate Thread Group" enabled="true">
         <collectionProp name="ultimatethreadgroupdata">
           <collectionProp name="-1108691518">
-            <stringProp name="1567">10</stringProp>
+            <stringProp name="1567">20</stringProp>
             <stringProp name="48">0</stringProp>
             <stringProp name="48873">180</stringProp>
             <stringProp name="49710">240</stringProp>
-            <stringProp name="10">5</stringProp>
+            <stringProp name="10">10</stringProp>
           </collectionProp>
         </collectionProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
@@ -113,12 +113,12 @@
           <collectionProp name="load_profile">
             <collectionProp name="-192758233">
               <stringProp name="1567">10</stringProp>
-              <stringProp name="1691">50</stringProp>
+              <stringProp name="1691">200</stringProp>
               <stringProp name="48873">180</stringProp>
             </collectionProp>
             <collectionProp name="1843477483">
               <stringProp name="1691">50</stringProp>
-              <stringProp name="1691">50</stringProp>
+              <stringProp name="1691">400</stringProp>
               <stringProp name="49710">240</stringProp>
             </collectionProp>
           </collectionProp>
@@ -128,11 +128,11 @@
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="jp@gc - Ultimate Thread Group" enabled="true">
         <collectionProp name="ultimatethreadgroupdata">
           <collectionProp name="-1108691518">
-            <stringProp name="1567">10</stringProp>
+            <stringProp name="1567">20</stringProp>
             <stringProp name="48">0</stringProp>
             <stringProp name="48873">180</stringProp>
             <stringProp name="49710">240</stringProp>
-            <stringProp name="10">5</stringProp>
+            <stringProp name="10">10</stringProp>
           </collectionProp>
         </collectionProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
@@ -166,12 +166,12 @@
           <collectionProp name="load_profile">
             <collectionProp name="1543912173">
               <stringProp name="1567">10</stringProp>
-              <stringProp name="1691">50</stringProp>
+              <stringProp name="1691">200</stringProp>
               <stringProp name="48873">180</stringProp>
             </collectionProp>
             <collectionProp name="1582355627">
               <stringProp name="1691">50</stringProp>
-              <stringProp name="1691">50</stringProp>
+              <stringProp name="1691">400</stringProp>
               <stringProp name="49710">240</stringProp>
             </collectionProp>
           </collectionProp>
