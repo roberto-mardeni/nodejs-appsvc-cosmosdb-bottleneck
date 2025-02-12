@@ -2,5 +2,12 @@ version: v0.1
 testId: SampleAppTest
 displayName: Sample Test
 testPlan: SampleApp.jmx
+testType: JMX
 description: 'Load test the sample app'
 engineInstances: 3
+failureCriteria:
+  - avg(response_time_ms) > 1000
+  - percentage(error) > 50
+autoStop:
+  errorPercentage: 80
+  timeWindow: 60
