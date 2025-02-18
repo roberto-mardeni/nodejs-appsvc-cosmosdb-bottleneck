@@ -10,9 +10,9 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_WEBAPP_NAME: "mywebapp202502181608"    # set this to your application's name
-  LOAD_TEST_RESOURCE: "myloadtest202502181608"
-  LOAD_TEST_RESOURCE_GROUP: "mywebapp202502181608-rg"
+  AZURE_WEBAPP_NAME: "mywebapp202502181634"    # set this to your application's name
+  LOAD_TEST_RESOURCE: "myloadtest202502181634"
+  LOAD_TEST_RESOURCE_GROUP: "mywebapp202502181634-rg"
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '14.15.1'                # set this to the node version to use
   LOCATION: "West US2"
@@ -88,13 +88,15 @@ jobs:
           template: ./ARMTemplate/template.json
           parameters: ./ARMTemplate/parameters.json name=${{ env.LOAD_TEST_RESOURCE }} location="${{ env.LOCATION }}"
 
-      - name: Add App Components & Metrics
+      - name: Create test and add App Components & Metrics
         uses: azure/powershell@v1
         continue-on-error: false
         with:
           inlineScript: |
             $testid = "sampleapptest"
             $subscriptionid = az account show --query "id" -o tsv 
+
+            az load test create --load-test-resource "${{ env.LOAD_TEST_RESOURCE }}" --resource-group "${{ env.LOAD_TEST_RESOURCE_GROUP }}" --test-id $testid --load-test-config-file SampleApp.yaml
             
             az load test app-component add --test-id $testid --load-test-resource "${{ env.LOAD_TEST_RESOURCE }}" --resource-group "${{ env.LOAD_TEST_RESOURCE_GROUP }}" --app-component-name "${{ env.AZURE_WEBAPP_NAME }}" --app-component-type microsoft.insights/components --app-component-id "/subscriptions/$subscriptionid/resourceGroups/${{ env.LOAD_TEST_RESOURCE_GROUP }}/providers/microsoft.insights/components/${{ env.AZURE_WEBAPP_NAME }}" --app-component-kind web
             
@@ -107,7 +109,7 @@ jobs:
             az load test server-metric add --test-id $testid --load-test-resource "${{ env.LOAD_TEST_RESOURCE }}" --resource-group "${{ env.LOAD_TEST_RESOURCE_GROUP }}" --metric-id "/subscriptions/$subscriptionid/resourceGroups/${{ env.LOAD_TEST_RESOURCE_GROUP }}/providers/Microsoft.Web/sites/${{ env.AZURE_WEBAPP_NAME }}/providers/microsoft.insights/metricdefinitions/InstanceCount" --metric-name  "Automatic Scaling Instance Count" --metric-namespace Microsoft.Web/sites --aggregation Count --app-component-type Microsoft.Web/sites --app-component-id "/subscriptions/$subscriptionid/resourceGroups/${{ env.LOAD_TEST_RESOURCE_GROUP }}/providers/Microsoft.Web/sites/${{ env.AZURE_WEBAPP_NAME }}"
           azPSVersion: "latest"      
   
-      - name: 'Azure Load Testing'
+      - name: 'Execute Load Test'
         uses: azure/load-testing@v1
         with:
           loadTestConfigFile: 'SampleApp.yaml'
