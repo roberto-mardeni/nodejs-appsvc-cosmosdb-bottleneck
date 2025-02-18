@@ -88,7 +88,7 @@ jobs:
           template: ./ARMTemplate/template.json
           parameters: ./ARMTemplate/parameters.json name=${{ env.LOAD_TEST_RESOURCE }} location="${{ env.LOCATION }}"
 
-      - name: Add App Components
+      - name: Add App Components & Metrics
         uses: azure/powershell@v1
         continue-on-error: false
         with:
@@ -103,6 +103,8 @@ jobs:
             az load test app-component add --test-id $testid --load-test-resource "${{ env.LOAD_TEST_RESOURCE }}" --resource-group "${{ env.LOAD_TEST_RESOURCE_GROUP }}" --app-component-name "${{ env.AZURE_WEBAPP_NAME }}-host" --app-component-type Microsoft.Web/serverfarms --app-component-id "/subscriptions/$subscriptionid/resourceGroups/${{ env.LOAD_TEST_RESOURCE_GROUP }}/providers/Microsoft.Web/serverfarms/${{ env.AZURE_WEBAPP_NAME }}-host" --app-component-kind app
             
             az load test app-component add --test-id $testid --load-test-resource "${{ env.LOAD_TEST_RESOURCE }}" --resource-group "${{ env.LOAD_TEST_RESOURCE_GROUP }}" --app-component-name "${{ env.AZURE_WEBAPP_NAME }}db" --app-component-type Microsoft.DocumentDB/databaseAccounts --app-component-id "/subscriptions/$subscriptionid/resourceGroups/${{ env.LOAD_TEST_RESOURCE_GROUP }}/providers/Microsoft.DocumentDB/databaseAccounts/${{ env.AZURE_WEBAPP_NAME }}db" --app-component-kind MongoDB
+
+            az load test server-metric add --test-id $testid --load-test-resource "${{ env.LOAD_TEST_RESOURCE }}" --resource-group "${{ env.LOAD_TEST_RESOURCE_GROUP }}" --metric-id "/subscriptions/$subscriptionid/resourceGroups/${{ env.LOAD_TEST_RESOURCE_GROUP }}/providers/Microsoft.Web/sites/${{ env.AZURE_WEBAPP_NAME }}/providers/microsoft.insights/metricdefinitions/Automatic Scaling Instance Count" --metric-name  "Automatic Scaling Instance Count" --metric-namespace Microsoft.Web/sites --aggregation Count --app-component-type Microsoft.Web/sites --app-component-id "/subscriptions/$subscriptionid/resourceGroups/${{ env.LOAD_TEST_RESOURCE_GROUP }}/providers/Microsoft.Web/sites/${{ env.AZURE_WEBAPP_NAME }}"
           azPSVersion: "latest"      
   
       - name: 'Azure Load Testing'
