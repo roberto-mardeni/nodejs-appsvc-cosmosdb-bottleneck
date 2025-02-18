@@ -82,7 +82,7 @@
                 "perSiteScaling": false,
                 "elasticScaleEnabled": true,
                 "numberOfSites": 1,
-                "maximumElasticWorkerCount": 1,
+                "maximumElasticWorkerCount": 10,
                 "isSpot": false,
                 "reserved": false,
                 "isXenon": false,
