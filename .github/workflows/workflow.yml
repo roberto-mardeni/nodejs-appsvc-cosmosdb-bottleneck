@@ -59,8 +59,7 @@ jobs:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
-  loadTest:
-    name: Load Test
+  load-test:
     needs: build-and-deploy
     runs-on: ubuntu-latest
     steps:
