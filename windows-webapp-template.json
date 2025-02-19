@@ -82,7 +82,7 @@
                 "perSiteScaling": false,
                 "elasticScaleEnabled": true,
                 "numberOfSites": 1,
-                "maximumElasticWorkerCount": 4,
+                "maximumElasticWorkerCount": 10,
                 "isSpot": false,
                 "reserved": false,
                 "isXenon": false,
@@ -128,7 +128,7 @@
                 },
                 "options": {
                     "autoscaleSettings": {
-                        "maxThroughput": 10000
+                        "maxThroughput": 20000
                     }
                 }
             }
